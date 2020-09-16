@@ -2,8 +2,8 @@
 listen=:4444
 
 #redis服务器地址  服务器地址:服务器端口
-redis_address=127.0.0.1:6379
-redis_password=
+redis_address=10.0.0.10:6381
+redis_password=1punch88
 redis_db=0
 
 #是否推送系统消息
