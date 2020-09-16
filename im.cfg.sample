@@ -27,8 +27,8 @@ ws_address=:13891
 wss_address=:14891
 
 #websocket tls域名的证书文件路径(let's encrypt) 可选项
-cert_file=fullchain1.pem
-key_file=privkey1.pem
+cert_file=certificate.crt
+key_file=private.pem
 
 
 #服务器状态信息和发送群组通知消息的接口监听地址 ip:port ip一般使用内网网卡地址
@@ -37,20 +37,20 @@ http_listen_address=:6666
 rpc_listen_address=:6665
 
 #mysql的链接地址  用户名:密码@tcp(服务器地址:服务器端口)/数据库名称
-mysqldb_source=root:123456@tcp(127.0.0.1:3306)/gobelieve
+mysqldb_source=root:123456@tcp(10.0.0.10:3306)/go_believe
 #redis服务器地址  服务器ip：服务器端口
-redis_address=127.0.0.1:6379
-redis_password=
+redis_address=10.0.0.10:6381
+redis_password=1punch88
 redis_db=0
 
 #群组消息发送队列的存储路径，必须存在
-pending_root=/tmp/pending
+pending_root=tmp/pending
 
 #客服的appid 可选项
 kefu_appid=0
 
 #可选日志配置
-log_filename=im.log
+log_filename=
 log_level=info
 #rotate log保存的文件数
 log_backup=3

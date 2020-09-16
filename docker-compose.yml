@@ -1,0 +1,45 @@
+version: "3.4"
+
+x-default: &default 
+  restart: always
+  networks:
+    - im_service
+  volumes: 
+    - ./tmp:/app/tmp
+
+services:
+  ims:
+    build: 
+      context: .
+      dockerfile: service.dockerfile
+    entrypoint: ["/app/ims", "ims.cfg"]
+    ports:
+      - "13333:13333"
+      - "3334:3334"
+    <<: *default
+  imr:
+    build: 
+      context: .
+      dockerfile: service.dockerfile
+    entrypoint: ["/app/imr", "imr.cfg"]
+    ports:
+      - "4444:4444"
+    <<: *default
+  im:
+    build: 
+      context: .
+      dockerfile: service.dockerfile
+    entrypoint: ["/app/im", "im.cfg"]
+    ports:
+      - "24430:24430"
+      - "23000:23000"
+      - "14891:14891"
+      - "13891:13891"
+      - "6666:6666"
+      - "6665:6665"
+    depends_on:
+      - ims
+      - imr
+    <<: *default
+networks:
+  im_service:
