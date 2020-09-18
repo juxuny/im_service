@@ -350,7 +350,7 @@ DEVICE_ID = "ec452582-a7a9-11e5-87d3-34363bd464b2"
 
 def main():
     #调用app自身的服务器获取连接im服务必须的access token
-    url = "http://demo.gobelieve.io/auth/token";
+    url = "http://demo.gobelieve.io/auth/token"
     headers = {'Content-Type': 'application/json; charset=UTF-8'}
     uid = 1
     name = "测试用户%d"%uid
