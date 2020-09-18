@@ -26,23 +26,14 @@
 4. 安装mysql数据库, redis, 并导入db.sql
 
 5. 配置程序
-   配置项的说明参考ims.cfg.sample, imr.cfg.sample, im.cfg.sample
+   配置项的说明参考ims.cfg, imr.cfg, im.cfg
 
 6. 启动程序
 
   * 创建配置文件中配置的im&ims消息存放路径
 
-    mkdir /tmp/im
-
-    mkdir /tmp/impending
-
-  * 创建日志文件路径
-    
-    mkdir /data/logs/ims
-
-    mkdir /data/logs/imr
-
-    mkdir /data/logs/im
+    mkdir tmp/im
+    mkdir tmp/impending
 
   * 启动im服务
 
