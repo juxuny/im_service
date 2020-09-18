@@ -8,22 +8,29 @@ x-default: &default
     - ./tmp:/app/tmp
 
 services:
-  ims:
+  ims_1:
     build: 
       context: .
       dockerfile: service.dockerfile
     entrypoint: ["/app/ims", "ims.cfg"]
-    ports:
-      - "13333:13333"
-      - "3334:3334"
     <<: *default
-  imr:
+  ims_2:
+    build:
+      context: .
+      dockerfile: service.dockerfile
+    entrypoint: [ "/app/ims", "ims.cfg" ]
+    <<: *default
+  imr_1:
     build: 
       context: .
       dockerfile: service.dockerfile
     entrypoint: ["/app/imr", "imr.cfg"]
-    ports:
-      - "4444:4444"
+    <<: *default
+  imr_2:
+    build:
+      context: .
+      dockerfile: service.dockerfile
+    entrypoint: [ "/app/imr", "imr.cfg" ]
     <<: *default
   im:
     build: 
@@ -38,8 +45,10 @@ services:
       - "6666:6666"
       - "6665:6665"
     depends_on:
-      - ims
-      - imr
+      - ims_1
+      - ims_2
+      - imr_1
+      - imr_2
     <<: *default
 networks:
   im_service:

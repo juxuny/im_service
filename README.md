@@ -21,13 +21,7 @@
 
 3. 编译
 
-   cd im_service
-    
-   mkdir bin
-    
-   make install
-    
-   可执行程序在bin目录下
+   docker-compose build
 
 4. 安装mysql数据库, redis, 并导入db.sql
 
@@ -52,17 +46,8 @@
 
   * 启动im服务
 
-    pushd \`dirname $0\` > /dev/null
-
-    BASEDIR=\`pwd\`
-
-    nohup $BASEDIR/ims ims.cfg >/data/logs/ims/ims.err 2>&1 &
-
-    nohup $BASEDIR/imr imr.cfg >/data/logs/imr/imr.err 2>&1 &
-
-    nohup $BASEDIR/im im.cfg >/data/logs/im/im.err 2>&1 &
-
-
+    docker-compose up --build
+   
 ## token的格式
 
     连接im服务器token存储在redis的hash对象中,脱离API服务器测试时，可以手工生成。
@@ -71,14 +56,3 @@
     field:
         user_id:用户id
         app_id:应用id
-
-
-## 官方QQ群
-1. 450359487(一群)，已满。
-2. 416969931(二群)，加群请附加说明信息。
-
-## 官方网站
-   https://developer.gobelieve.io/
-
-## 相关产品
-   https://goubuli.mobi/
